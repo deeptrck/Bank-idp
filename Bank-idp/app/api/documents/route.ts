@@ -70,6 +70,43 @@ export async function POST(request: NextRequest) {
         console.error('PDF text extraction failed:', pdfError);
         throw new Error(`PDF text extraction failed: ${pdfError.message}`);
       }
+      
+      // Fallback to AWS Textract if digital text is empty (scanned/image PDF)
+      if (!fullText.trim()) {
+        console.log('Digital text extraction empty. Falling back to AWS Textract OCR...');
+        try {
+          const awsAccessKeyId = process.env.AWS_ACCESS_KEY_ID;
+          const awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+          const awsRegion = process.env.AWS_DEFAULT_REGION || process.env.AWS_REGION || 'us-east-1';
+          
+          if (awsAccessKeyId && awsSecretAccessKey) {
+            const { TextractClient, DetectDocumentTextCommand } = require('@aws-sdk/client-textract');
+            const textractClient = new TextractClient({
+              region: awsRegion,
+              credentials: {
+                accessKeyId: awsAccessKeyId,
+                secretAccessKey: awsSecretAccessKey
+              }
+            });
+            
+            const command = new DetectDocumentTextCommand({
+              Document: { Bytes: buffer }
+            });
+            
+            const response = await textractClient.send(command);
+            const lines = response.Blocks
+              ?.filter((b: any) => b.BlockType === 'LINE')
+              ?.map((b: any) => b.Text) || [];
+            
+            fullText = lines.join('\n');
+            console.log(`AWS Textract extracted ${fullText.length} characters.`);
+          } else {
+            console.warn('AWS credentials not configured. Skipping Textract OCR.');
+          }
+        } catch (textractError: any) {
+          console.error('AWS Textract OCR failed:', textractError);
+        }
+      }
     } else if (fileExtension === '.docx') {
       try {
         const mammoth = require('mammoth');

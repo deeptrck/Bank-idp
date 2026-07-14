@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-textract": "^3.1087.0",
     "mammoth": "^1.12.0",
     "next": "14.2.5",
     "pdf-parse": "^1.1.1",
