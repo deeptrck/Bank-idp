@@ -155,7 +155,7 @@ export async function POST(request: NextRequest) {
       }
     }
     const isArabic = (arabicCount / Math.max(sample.length, 1)) > 0.15;
-    const modelUsed = isArabic ? 'openai/gpt-oss-120b' : 'llama-3.3-70b-versatile';
+    const modelUsed = isArabic ? 'openai/gpt-oss-20b' : 'llama-3.3-70b-versatile';
     
     // 3. Prompt Construction
     const requiredHints = `  - invoice_number: Unique invoice identifier / reference number

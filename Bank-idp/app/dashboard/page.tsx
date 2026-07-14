@@ -154,7 +154,7 @@ export default function DashboardPage() {
           }}
         >
           <div>
-            <p style={{ fontWeight: 600, fontSize: 20, margin: 0 }}>Onboarding Queue (POC - In Memory)</p>
+            <p style={{ fontWeight: 600, fontSize: 20, margin: 0 }}>Onboarding Queue </p>
             <p style={{ fontSize: 13, color: 'var(--text-secondary)', margin: '4px 0 0' }}>
               Nairobi Branch • {rows.length} documents total
             </p>

@@ -51,7 +51,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Model used for non-English documents (accessible via GROQ_API_KEY)
-_MULTILINGUAL_MODEL = "openai/gpt-oss-120b"
+_MULTILINGUAL_MODEL = "openai/gpt-oss-20b"
 
 # Supported file extensions
 _SUPPORTED_EXTENSIONS = {".pdf", ".docx"}
