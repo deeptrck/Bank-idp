@@ -1,5 +1,20 @@
-node_modules
-.next
+# Python env and cache
+.venv/
+__pycache__/
+*.pyc
+
+# Local env keys (CRITICAL)
 .env
 .env.local
-out
+
+# Node and NextJS cache
+node_modules/
+.next/
+out/
+dist/
+.dist/
+.history/
+
+# Temp upload files
+uploads/
+d

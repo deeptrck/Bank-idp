@@ -1,0 +1,60 @@
+{
+  "source_file": "فاتورة.docx",
+  "category": "financial",
+  "processed_at": "2026-07-14T18:08:53.686061+00:00",
+  "status": "escalated",
+  "score": 0.96,
+  "data": {
+    "vendor": {
+      "name": "شركة النور للتجارة",
+      "address": "شارع التحرير، القاهرة، مصر",
+      "phone": "01000000000",
+      "email": "info@alnoor-trade.com"
+    },
+    "invoice_number": "INV-2026-0714",
+    "invoice_date": "2026-07-14",
+    "due_date": "2026-07-28",
+    "bill_to": {
+      "name": "أحمد محمد علي",
+      "address": "شارع الجمهورية، الإسكندرية، مصر"
+    },
+    "payment_terms": "14 days",
+    "items": [
+      {
+        "total": 15000,
+        "currency": "EGP",
+        "price": null,
+        "quantity": 1,
+        "description": "تصميم موقع إلكتروني"
+      },
+      {
+        "total": 3000,
+        "currency": "EGP",
+        "price": null,
+        "quantity": 1,
+        "description": "استضافة سنوية"
+      },
+      {
+        "total": 4500,
+        "currency": "EGP",
+        "price": 1500,
+        "quantity": 3,
+        "description": "صيانة شهرية (٣ أشهر)"
+      }
+    ],
+    "summary": {
+      "subtotal": 22500,
+      "subtotal_currency": "EGP",
+      "tax": 3150,
+      "tax_currency": "EGP",
+      "tax_rate_percent": 14,
+      "total_amount": 25650,
+      "total_currency": "EGP"
+    },
+    "notes": "يُرجى سداد المبلغ خلال ١٤ يومًا من تاريخ الإصدار. شكرًا لتعاملكم معنا."
+  },
+  "violations": [
+    "Required field missing or empty: 'total_amount'"
+  ],
+  "model_used": "openai/gpt-oss-120b"
+}

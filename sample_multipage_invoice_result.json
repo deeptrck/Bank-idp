@@ -1,0 +1,45 @@
+{
+  "source_file": "sample_multipage_invoice.pdf",
+  "category": "financial",
+  "processed_at": "2026-07-14T17:59:56.753844+00:00",
+  "status": "passed",
+  "score": 0.95,
+  "data": {
+    "invoice_number": "INV-20260714-001",
+    "invoice_date": "2026-07-14",
+    "bill_to": "Nairobi Textiles Ltd.",
+    "vendor": "Acme Supply Co.",
+    "payment_terms": "Net 30",
+    "total_amount": 4250,
+    "currency": "USD",
+    "notes": "Please remit payment within 30 days of invoice date. 1.5% monthly interest. Late payments subject to",
+    "items": [
+      {
+        "item": "Cotton Fabric Roll (50m)",
+        "qty": 10,
+        "unit_price": 120,
+        "total": 1200
+      },
+      {
+        "item": "Dye Set - Indigo",
+        "qty": 5,
+        "unit_price": 80,
+        "total": 400
+      },
+      {
+        "item": "Shipping Crate (Large)",
+        "qty": 3,
+        "unit_price": 150,
+        "total": 450
+      },
+      {
+        "item": "Handling Fee",
+        "qty": 1,
+        "unit_price": 100,
+        "total": 100
+      }
+    ]
+  },
+  "violations": [],
+  "model_used": "llama-3.3-70b-versatile"
+}

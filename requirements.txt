@@ -1,0 +1,6 @@
+boto3
+pymupdf
+openai
+python-dotenv
+python-docx
+langdetect
