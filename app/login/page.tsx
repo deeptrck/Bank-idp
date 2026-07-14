@@ -1,12 +1,18 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useEffect } from 'react';
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.clear();
+    }
+  }, []);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
