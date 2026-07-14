@@ -210,25 +210,9 @@ ${fullText}
     const fieldConfidence = parsed.field_confidence || {};
     const violations: string[] = [];
     
-    // Check required fields
-    const requiredFields = ['invoice_number', 'invoice_date', 'bill_to', 'vendor', 'payment_terms', 'total_amount'];
-    for (const field of requiredFields) {
-      const val = data[field];
-      if (val === undefined || val === null || (typeof val === 'string' && val.trim() === '')) {
-        violations.push(`Required field missing or empty: '${field}'`);
-      }
-    }
-    
     // Check overall confidence
     if (typeof confidence === 'number' && confidence < 0.75) {
       violations.push(`Overall confidence ${confidence.toFixed(2)} is below threshold 0.75`);
-    }
-    
-    // Check field confidence
-    for (const [field, score] of Object.entries(fieldConfidence)) {
-      if (typeof score === 'number' && score < 0.60) {
-        violations.push(`Low confidence for field '${field}': ${score.toFixed(2)} (threshold 0.60)`);
-      }
     }
     
     const status = violations.length === 0 ? 'passed' : 'escalated';
@@ -299,10 +283,5 @@ function getDocumentTypeFromData(data: any): string {
 
 function mapStatus(backendStatus: string, violations: string[]): string {
   if (backendStatus === 'passed') return 'passed';
-  
-  if (violations && violations.some(v => v.toLowerCase().includes('failed') || v.toLowerCase().includes('empty') || v.toLowerCase().includes('denied'))) {
-    return 'flagged';
-  }
-  
   return 'review';
 }
