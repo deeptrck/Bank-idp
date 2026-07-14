@@ -2,22 +2,24 @@
 
 :root {
   /* Surfaces */
-  --bg-page: #f5f6f8;
+  --bg-page: #f4f8ff;
   --surface-1: #ffffff;
-  --surface-2: #ffffff;
-  --border: #e2e5eb;
-  --radius: 8px;
+  --surface-2: #f7faff;
+  --border: #dbe7ff;
+  --radius: 12px;
 
   /* Text */
-  --text-primary: #10151f;
-  --text-secondary: #5b6472;
-  --text-muted: #9aa2af;
-  --text-accent: #1f3a8a;
+  --text-primary: #10213d;
+  --text-secondary: #58708f;
+  --text-muted: #8595aa;
+  --text-accent: #2563eb;
 
   /* Brand fill */
-  --fill-primary: #16234f;
+  --fill-primary: linear-gradient(135deg, #2563eb 0%, #0f3d9e 100%);
   --on-primary: #ffffff;
-  --bg-accent: #e7ebfb;
+  --bg-accent: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+  --bg-accent-start: #dbeafe;
+  --bg-accent-end: #bfdbfe;
 
   /* Semantic status colors */
   --text-success: #1c7a4d;
@@ -36,7 +38,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background: var(--bg-page);
+  background: linear-gradient(135deg, #f4f8ff 0%, #eef4ff 45%, #f9fcff 100%);
   color: var(--text-primary);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
@@ -53,26 +55,31 @@ button {
   background: var(--fill-primary);
   color: var(--on-primary);
   border-radius: var(--radius);
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.2);
 }
 
 button:hover {
-  opacity: 0.92;
+  opacity: 0.96;
+  transform: translateY(-1px);
 }
 
 input {
   font-family: inherit;
   font-size: 14px;
-  padding: 8px 10px;
+  padding: 10px 12px;
   border-radius: var(--radius);
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   background: var(--surface-1);
   color: var(--text-primary);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
 input:focus,
 button:focus-visible {
-  outline: 2px solid var(--text-accent);
+  outline: 2px solid rgba(37, 99, 235, 0.25);
   outline-offset: 1px;
+  border-color: var(--text-accent);
 }
 
 .sr-only {
@@ -89,12 +96,77 @@ button:focus-visible {
 
 .page-shell {
   min-height: 100vh;
-  padding: 2rem 1.25rem;
+  padding: 2.5rem 1.25rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 32%),
+    linear-gradient(135deg, #f4f8ff 0%, #eef4ff 45%, #f9fcff 100%);
 }
 
 .page-inner {
   width: 100%;
-  max-width: 880px;
+  max-width: 980px;
+  display: flex;
+  justify-content: center;
+}
+
+.login-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 255, 0.97));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.25rem 2rem 1.4rem;
+  width: min(100%, 360px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+
+.login-brand {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.brand-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-accent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 12px 28px rgba(37, 99, 235, 0.16);
+}
+
+.brand-title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.brand-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.login-button {
+  width: 100%;
+  height: 42px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.login-footnote {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 16px 0 0;
 }
