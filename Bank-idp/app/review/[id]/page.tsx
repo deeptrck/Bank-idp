@@ -228,9 +228,6 @@ export default function ReviewPage({ params }: { params: { id: string } }) {
               <i className="ti ti-download" style={{ fontSize: 14 }} />
               Download JSON
             </button>
-            <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
-              Processed via model: <strong style={{ color: 'var(--text-primary)' }}>{raw.model_used || 'N/A'}</strong>
-            </div>
           </div>
         </div>
 
