@@ -55,6 +55,5 @@
     "currency": "EGP",
     "notes": "يُرجى سداد المبلغ خلال ١٤ يومًا من تاريخ الإصدار. شكرًا لتعاملكم معنا."
   },
-  "violations": [],
-  "model_used": "openai/gpt-oss-120b"
+  "violations": []
 }
