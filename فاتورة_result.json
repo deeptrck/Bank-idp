@@ -55,6 +55,5 @@
   },
   "violations": [
     "Required field missing or empty: 'total_amount'"
-  ],
-  "model_used": "openai/gpt-oss-120b"
+  ]
 }
