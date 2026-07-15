@@ -40,6 +40,5 @@
       }
     ]
   },
-  "violations": [],
-  "model_used": "llama-3.3-70b-versatile"
+  "violations": []
 }
